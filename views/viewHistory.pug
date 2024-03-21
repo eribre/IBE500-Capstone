@@ -1,0 +1,11 @@
+doctype html 
+html 
+	head 
+		title View Tx History
+	body 
+		h1 View Transaction History 
+		
+		each item in array 
+			a(href= "https://test.whatsonchain.com/tx/" + item) #{item}
+			<br />
+			<br />

@@ -1,0 +1,13 @@
+doctype html 
+html 
+	head 
+		title View Transaction
+	body 
+		h1 View Transaction 
+
+		form(action="/views/outData", method="post") 
+			label(for="transaction") Transaction you would like to view:
+			<br/>
+			input(type="text" name="transaction" size="80" required)
+			<br/>
+			input(type="submit", value="View transaction data")

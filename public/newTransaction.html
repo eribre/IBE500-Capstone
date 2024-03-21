@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<!-- kommentar -->
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title></title>
+	</head>
+	<body>
+		<p>
+			Please enter required values in all fields before hitting "Submit"
+		</p>
+
+		<form method="POST" action="/submit">
+			<input type="text" name="address" />
+			<input type="text" name="txValue" />
+			<input type="submit" />
+		</form>
+
+		<!--<script>
+			// let address;
+			function newTransaction() {
+				return document.getElementById("addr").value;
+			}
+			function printAdd() {
+				document.getElementById("testp").innerHTML = newTransaction();
+			}
+		</script> -->
+
+		<div><p id="testp">Test</p></div>
+	</body>
+</html>

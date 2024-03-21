@@ -1,0 +1,36 @@
+doctype html 
+html 
+	head 
+		title View Data in transaction
+		style. 
+			table, th, td {
+				border: 1px solid black;}
+			table {
+				width:50%
+			}
+	body 
+		h1 Data stored in transaction:
+
+		table()
+			tr
+				th Firm 
+				th Supplier 
+				th Nr. Caught 
+				th Nr. Bought  
+				th Nr. Sold 
+				th Buyer 
+			tr 
+				td(id="firm")
+				td(id="supplier")
+				td(id="caught")
+				td(id="bought")
+				td(id="sold")
+				td(id="buyer")
+
+		script. 
+			document.getElementById("firm").innerHTML = "#{outputList[0]}";
+			document.getElementById("supplier").innerHTML = "#{outputList[1]}";
+			document.getElementById("caught").innerHTML = "#{outputList[2]}";
+			document.getElementById("bought").innerHTML = "#{outputList[3]}";
+			document.getElementById("sold").innerHTML = "#{outputList[4]}";
+			document.getElementById("buyer").innerHTML = "#{outputList[5]}";

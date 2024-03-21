@@ -1,0 +1,65 @@
+doctype html 
+html 
+	head 
+		title View Data in stored in transactions
+		style. 
+			table, th, td {
+				border: 1px solid black;}
+			table {
+				width:50%
+			}
+	body 
+		h1 Data stored in transactions:
+
+		table()
+			tr
+				th Firm 
+				th Supplier 
+				th Nr. Caught 
+				th Nr. Bought  
+				th Nr. Sold 
+				th Buyer 
+			each val in arr
+				tr 
+					td= val.firm 
+					td= val.supplier 
+					td= val.caught 
+					td= val.bought 
+					td= val.sold 
+					td= val.buyer
+		
+		h2 Stats:
+
+		each val in arr
+			
+			if val.caught > 0
+				p #{val.firm} has caught #{val.caught} kg of fish.
+			
+			if val.bought > 0
+				p #{val.firm} has bought #{val.bought} kg of fish from #{val.supplier}.
+			
+			if val.sold > 0
+				p #{val.firm} has sold #{val.sold} kg of fish to #{val.buyer}.
+			
+
+		h2 Summary:
+		
+		- var sum = 0;
+		each val in arr 
+			if val.firm == '"Firma A"' && val.caught > 0
+				- sum += Number(val.caught)
+			if val.firm === '"Firma A"' && val.bought > 0
+				- sum += Number(val.caught)
+			if val.firm === '"Firma A"' && val.sold > 0
+				- sum -= Number(val.sold)
+		p "Firma A" has #{sum} kg of fish left after sales.
+
+		- var sum2 = 0
+		each val in arr 
+			if val.firm == '"Firma B"' && val.caught > 0
+				- sum += Number(val.caught)
+			if val.firm === '"Firma B"' && val.bought > 0
+				- sum += Number(val.caught)
+			if val.firm === '"Firma B"' && val.sold > 0
+				- sum -= Number(val.sold)
+		p "Firma B" has #{sum2} kg of fish left after sales.
