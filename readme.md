@@ -2,17 +2,15 @@
 
 #### MAKE SURE THAT DEPENDENCIES ARE INSTALLED!!
 
-Node_modules is included, but it doesn't hurt to double check.
+This project requires bsv2, whatsonchain, expressjs and pug (for html templates) to function.
 
-This project requires bsv, whatsonchain, expressjs and pug (for html templates) to function.
-
-To start the server, run "node index.js" with this folder as the working directory.  
+To start the server, run "node index.js" with this folder as the working directory.
 (old_index.js is as the name suggests, outdated)
 
-Then go to a browser of your choice (this has only been tested in firefox though),  
+Then go to a browser of your choice (this has only been tested in firefox though),
 and enter http://localhost:3000
 
-You should now be on the main page, click the first link (**new transaction**) to go to the  
+You should now be on the main page, click the first link (**new transaction**) to go to the
 tool for creating new transactions.
 
 **Display previous transaction IDs** displays all transaction IDs that are saved in the log file.
