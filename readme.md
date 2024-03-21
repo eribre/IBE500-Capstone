@@ -4,6 +4,8 @@
 
 This project requires bsv2, whatsonchain, expressjs and pug (for html templates) to function.
 
+Install by running `npm install` in the terminal in the same directory as the package.json file.
+
 To start the server, run "node index.js" with this folder as the working directory.
 (old_index.js is as the name suggests, outdated)
 
