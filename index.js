@@ -96,6 +96,13 @@ app.post("/views/outData", async (req, res) => {
     }
 });
 
+// wait function to deal with 3 calls/second limit
+async function wait(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+}
+
 // Original solution to viewing all data from op_return
 // TODO check that op_return is in supporting format
 app.get("/views/sumData", async (req, res) => {
@@ -110,8 +117,10 @@ app.get("/views/sumData", async (req, res) => {
 
         for (let i = 0; i < rawData.length; i += 1) {
             // eslint-disable-next-line no-await-in-loop
+            await wait(300);
             let outCsv = await getTx(rawData[i]);
             outCsv = outCsv.substring(1);
+            console.log(outCsv);
             const oLst = outCsv.split(",");
             res.write("<tr>");
             res.write(
@@ -123,6 +132,7 @@ app.get("/views/sumData", async (req, res) => {
         res.write("<h2> Summary </h2>");
         for (let j = 0; j < rawData.length; j += 1) {
             // eslint-disable-next-line no-await-in-loop
+            await wait(300);
             let outCsv = await getTx(rawData[j]);
             outCsv = outCsv.substring(1);
             const oLst = outCsv.split(",");
@@ -163,6 +173,7 @@ app.get("/views/sumDataV2", async (req, res) => {
     const arr = {};
     for (let i = 0; i < rawData.length; i += 1) {
         // eslint-disable-next-line no-await-in-loop
+        await wait(300);
         let outCsv = await getTx(rawData[i]);
         outCsv = outCsv.substring(1);
         const oLst = outCsv.split(",");
