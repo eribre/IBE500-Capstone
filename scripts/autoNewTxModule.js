@@ -45,7 +45,7 @@ async function autoNewTx(utxoFrom, utxoPrivkeyWif, changeAddr, msgToWrite) {
 		const utxoFund = TxOut.fromProperties(
 			// satoshis in output, script
 			Bn().fromNumber(utxoValue),
-			Address.Testnet.fromString(utxoFrom).toTxOutScript(),
+			Address.Testnet.fromString(utxoFrom).toTxOutScript()
 		);
 
 		const utxoTxidBuff = Buffer.from(utxoTxid, "hex").reverse();
@@ -62,7 +62,7 @@ async function autoNewTx(utxoFrom, utxoPrivkeyWif, changeAddr, msgToWrite) {
 
 		const data = msgToWrite.map((str) =>
 			// Admits several strings on the list msgToWrite
-			Buffer.from(str),
+			Buffer.from(str)
 		);
 
 		/* See bsv\lib\tx-builder.js
@@ -71,7 +71,7 @@ async function autoNewTx(utxoFrom, utxoPrivkeyWif, changeAddr, msgToWrite) {
 			*/
 		builder.outputToScript(
 			Bn().fromNumber(0),
-			Script.fromSafeDataArray(data),
+			Script.fromSafeDataArray(data)
 		);
 
 		builder.setChangeAddress(Address.Testnet.fromString(changeAddr)); // Set change address
@@ -91,7 +91,7 @@ async function autoNewTx(utxoFrom, utxoPrivkeyWif, changeAddr, msgToWrite) {
 
 	async function txid(pubAddr) {
 		const output = await accessChain(pubAddr).then((result) =>
-			broadcastTx(result).then((txReturn) => txReturn),
+			broadcastTx(result).then((txReturn) => txReturn)
 		);
 		return output;
 	}

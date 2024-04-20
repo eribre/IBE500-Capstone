@@ -1,12 +1,12 @@
-doctype html 
-html 
-	head 
+doctype html
+html
+	head
 		title New Transaction
 		meta(charset="ASCII")
-	body 
+	body
 	p Please enter required values in all fields before hitting "Submit"
 
-	form(action="/views/finTx", method="post") 
+	form(action="/views/finTx", method="post")
 		label(for="address") Your public address
 		<br />
 		input(type="text" name="address" size="50" required)
@@ -15,7 +15,7 @@ html
 		<br />
 		input(type="text" name="utxoPWif" size="64" required)
 		<br />
-		label(for="msg") 
+		label(for="msg")
 			| Your message/data to send: <br />
 			| Please use format (csv); "firm","supplier",caught,bought,sold,"buyer"
 			| <br /> Make sure to include the quotation marks.

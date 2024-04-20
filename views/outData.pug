@@ -1,25 +1,25 @@
-doctype html 
-html 
-	head 
+doctype html
+html
+	head
 		title View Data in transaction
-		style. 
+		style.
 			table, th, td {
 				border: 1px solid black;}
 			table {
 				width:50%
 			}
-	body 
+	body
 		h1 Data stored in transaction:
 
 		table()
 			tr
-				th Firm 
-				th Supplier 
-				th Nr. Caught 
-				th Nr. Bought  
-				th Nr. Sold 
-				th Buyer 
-			tr 
+				th Firm
+				th Supplier
+				th Nr. Caught
+				th Nr. Bought
+				th Nr. Sold
+				th Buyer
+			tr
 				td(id="firm")
 				td(id="supplier")
 				td(id="caught")
@@ -27,7 +27,7 @@ html
 				td(id="sold")
 				td(id="buyer")
 
-		script. 
+		script.
 			document.getElementById("firm").innerHTML = "#{outputList[0]}";
 			document.getElementById("supplier").innerHTML = "#{outputList[1]}";
 			document.getElementById("caught").innerHTML = "#{outputList[2]}";

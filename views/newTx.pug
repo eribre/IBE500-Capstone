@@ -1,12 +1,12 @@
-doctype html 
-html 
-	head 
+doctype html
+html
+	head
 		title New Transaction
 		meta(charset="ASCII")
-	body 
+	body
 	p Please enter required values in all fields before hitting "Submit"
 
-	form(action="/views/finTx", method="post") 
+	form(action="/views/finTx", method="post")
 		label(for="address") Your address
 		<br/>
 		input(type="text" name="address" size="50" required)
@@ -15,7 +15,7 @@ html
 		<br/>
 		input(type="text" name="utxoTxid" size="76" required)
 		<br/>
-		label(for="utxoValue") Amount of utxo from previous transactions (in satoshis) 
+		label(for="utxoValue") Amount of utxo from previous transactions (in satoshis)
 		<br/>
 		input(type="number" step="1" name="utxoValue" required)
 		<br/>
@@ -23,7 +23,7 @@ html
 		<br/>
 		input(type="number" step="1" name="utxoIndex" required)
 		<br/>
-		label(for="utxoPWif") Your private key in Wif-Format (Ensure HTTPS if done over internet) 
+		label(for="utxoPWif") Your private key in Wif-Format (Ensure HTTPS if done over internet)
 		<br/>
 		input(type="text" name="utxoPWif" size="64" required)
 		<br/>
@@ -31,9 +31,9 @@ html
 		<br/>
 		input(type="text" name="changeAddr" size="50" required)
 		<br/>
-		label(for="msg") Your message/data to send 
+		label(for="msg") Your message/data to send
 		<br/>
-		textarea(name="msg", cols="30", rows="10" required) 
+		textarea(name="msg", cols="30", rows="10" required)
 		<br/>
 		input(type="submit", value="Create new transaction")
 

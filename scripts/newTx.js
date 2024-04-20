@@ -5,7 +5,7 @@ function newTX(
 	utxoTxid,
 	utxoPWif,
 	changeAddr,
-	msg,
+	msg
 ) {
 	const {
 		Address,
@@ -21,7 +21,7 @@ function newTX(
 	const utxoFund = TxOut.fromProperties(
 		// satoshis in output, script
 		Bn().fromNumber(utxoValue),
-		Address.Testnet.fromString(utxoFrom).toTxOutScript(),
+		Address.Testnet.fromString(utxoFrom).toTxOutScript()
 	);
 
 	const utxoTxidBuff = Buffer.from(utxoTxid, "hex").reverse();
@@ -34,7 +34,7 @@ function newTX(
 
 	const data = msg.map((str) =>
 		// Admits several strings on the list msgToWrite.
-		Buffer.from(str),
+		Buffer.from(str)
 	);
 
 	/* See bsv\lib\tx-builder.js

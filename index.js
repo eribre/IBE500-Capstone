@@ -26,7 +26,7 @@ app.use("/", routes);
 app.use(
 	express.urlencoded({
 		extended: true,
-	}),
+	})
 );
 
 // renders main page
@@ -46,7 +46,7 @@ app.post("/views/finTx", async (req, res) => {
 		const output = await autoNewTx(
 			address, // utxoFrom
 			utxoPWif, // utxoPrivatekeyWif
-			[msgTrim], // msgToWrite
+			[msgTrim] // msgToWrite
 		);
 		// writes txId to log file for later use
 		fs.appendFileSync("./data/txId.log", `${output}\n`, (err) => {
@@ -112,7 +112,7 @@ app.get("/views/sumData", async (req, res) => {
 		console.log(rawData.length);
 		res.setHeader("Content-Type", "text/html");
 		res.write(
-			"<table><tr><th>Firm</th><th>Supplier</th><th>Nr. Caught</th><th>Nr. Bought</th><th>Nr. Sold</th><th>Buyer</th></tr>",
+			"<table><tr><th>Firm</th><th>Supplier</th><th>Nr. Caught</th><th>Nr. Bought</th><th>Nr. Sold</th><th>Buyer</th></tr>"
 		);
 
 		for (let i = 0; i < rawData.length; i += 1) {
@@ -124,7 +124,7 @@ app.get("/views/sumData", async (req, res) => {
 			const oLst = outCsv.split(",");
 			res.write("<tr>");
 			res.write(
-				`<td>${oLst[0]}</td><td>${oLst[1]}</td><td>${oLst[2]}</td><td>${oLst[3]}</td><td>${oLst[4]}</td><td>${oLst[5]}</td>`,
+				`<td>${oLst[0]}</td><td>${oLst[1]}</td><td>${oLst[2]}</td><td>${oLst[3]}</td><td>${oLst[4]}</td><td>${oLst[5]}</td>`
 			);
 			res.write("</tr>");
 		}
@@ -144,14 +144,14 @@ app.get("/views/sumData", async (req, res) => {
 			// if an amount was bought write to page
 			if (oLst[3] > 0) {
 				res.write(
-					`${oLst[0]} has bought ${oLst[3]} kg of fish from ${oLst[1]}`,
+					`${oLst[0]} has bought ${oLst[3]} kg of fish from ${oLst[1]}`
 				);
 				res.write("<br/>");
 			}
 			// if an amount was sold write to page
 			if (oLst[4] > 0) {
 				res.write(
-					`${oLst[0]} has sold ${oLst[4]} kg of fish to ${oLst[5]}`,
+					`${oLst[0]} has sold ${oLst[4]} kg of fish to ${oLst[5]}`
 				);
 				res.write("<br/>");
 			}
