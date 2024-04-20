@@ -7,31 +7,31 @@ const { get } = require("../routes");
 process.env.NETWORK = "testnet";
 
 async function getTx(id) {
-    const txId = id;
+	const txId = id;
 
-    const woc = require("whatsonchain");
+	const woc = require("whatsonchain");
 
-    /**
-     * Receives the transaction Id and the output index
-     * Retrieves the message stored in that output
-     * If there is no message, it raises an error
-     * @param {string} txId
-     * @param {number} outputIndex
-     * @return {Promise<string>}
-     */
-    const getMessage = async function (txId, outputIndex) {
-        const whatsonchain = new woc("test");
-        let result = await whatsonchain.getRawTxOutputData(txId, outputIndex);
-        if (result.startsWith("006a")) {
-            return Buffer.from(result.substring(4), "hex").toString();
-        } else {
-            return Promise.reject("Failure: no message in this output");
-        }
-    };
+	/**
+	 * Receives the transaction Id and the output index
+	 * Retrieves the message stored in that output
+	 * If there is no message, it raises an error
+	 * @param {string} txId
+	 * @param {number} outputIndex
+	 * @return {Promise<string>}
+	 */
+	const getMessage = async function (txId, outputIndex) {
+		const whatsonchain = new woc("test");
+		let result = await whatsonchain.getRawTxOutputData(txId, outputIndex);
+		if (result.startsWith("006a")) {
+			return Buffer.from(result.substring(4), "hex").toString();
+		} else {
+			return Promise.reject("Failure: no message in this output");
+		}
+	};
 
-    const outputToWeb = await getMessage(txId, 0);
-    console.log(outputToWeb);
-    return outputToWeb;
+	const outputToWeb = await getMessage(txId, 0);
+	console.log(outputToWeb);
+	return outputToWeb;
 }
 
 // const output = getTx(
